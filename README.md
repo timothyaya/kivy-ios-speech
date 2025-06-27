@@ -1,8 +1,14 @@
 # kivy-ios-speech
 
 1. create speechbridge.m / speechbridge.h in xcode
+
+   add -fobjc-arc into compilerflags of speechbridge.m:
    
-2. update project-info.plist:
+   build phases -> compile resources -> double click speechbridge.m -> add -fobjc-arc
+   
+   if this step is not done, an error "Cannot create __weak reference in file using manual reference counting" occures
+   
+3. update project-info.plist:
 ```
 <key>NSMicrophoneUsageDescription</key>
 <string>This app needs microphone access for recording and voice control.</string>
